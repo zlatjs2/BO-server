@@ -1,0 +1,30 @@
+{
+  "name": "bo-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "async": "^2.6.1",
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "elasticsearch": "^15.2.0",
+    "express": "~4.13.4",
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0",
+    "serve-favicon": "~2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoheehohee/BO-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hoheehohee/BO-server/issues"
+  },
+  "homepage": "https://github.com/hoheehohee/BO-server#readme"
+}
