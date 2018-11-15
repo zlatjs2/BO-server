@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride());
 app.use(cookieParser());      // 쿠키 구문 분석 미들웨어 함수
 
-app.use('/', storeRoute);
+app.use('/store', storeRoute);
 
 app.use(logError);
 app.use(clientErrorHandler);
