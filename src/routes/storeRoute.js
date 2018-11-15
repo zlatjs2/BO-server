@@ -1,22 +1,26 @@
 const express = require('express');
 const router = express.Router();
 const async = require('async');
+const debug = require('debug')('BO-server:store');
+const name = 'storeRouter';
 
 router.get('/', (req, res, next) => {
   try {
     async.waterfall([
       (callback) => {
-        let responseText = 'Hello World!';
-        responseText += ' Requested at: ' + req.requestTime + '';
-        res.send(responseText);
+      }, (callback) => {
+
+      }, (callback) => {
+
       }
     ], (err, result) => {
+
       console.log('##### waterfall error: ', error)
     })
   } catch (error) {
     console.log('#####  error: ', error)
   }
-})
+});
 
 router.get('/a_route_behind_paywall', (req, res, next) => {
   try {
@@ -41,5 +45,6 @@ router.get('/a_route_behind_paywall', (req, res, next) => {
     res.json(doc);
   });
 });
+
 
 module.exports = router;
