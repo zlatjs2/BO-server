@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const helmet = require('helmet');
 const session = require('express-session');
+require('dotenv').config();
 
 const storeRoute = require('./routes/StoreRoute');
 

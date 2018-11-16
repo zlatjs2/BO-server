@@ -53,4 +53,15 @@ Logger.e = (s) => {
   logger_debug.error(prefix + s);
 };
 
+Logger.eJSON = (json, tag) => {
+  const s = JSON.stringify(json);
+  let prefix = `<${process.pid}> `;
+  let _tag = '';
+  
+  if (tag) {
+    _tag = `(${tag}) => `
+  }
+  logger_debug.error(prefix + _tag + s);
+}
+
 module.exports = Logger;
