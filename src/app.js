@@ -8,6 +8,7 @@ const session = require('express-session');
 require('dotenv').config();
 
 const storeRoute = require('./routes/StoreRoute');
+const menuRoute = require('./routes/MenuRoute');
 
 const port = 9001
 const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
@@ -44,6 +45,7 @@ app.use(methodOverride());
 app.use(cookieParser());      // 쿠키 구문 분석 미들웨어 함수
 
 app.use('/store', storeRoute);
+app.use('/menu', menuRoute);
 
 app.use(logError);
 app.use(clientErrorHandler);
