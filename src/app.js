@@ -10,7 +10,7 @@ require('dotenv').config();
 const storeRoute = require('./routes/StoreRoute');
 const menuRoute = require('./routes/MenuRoute');
 
-const port = 9001
+const port = 9010
 const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
 
 const logError = (err, req, res, next) => {

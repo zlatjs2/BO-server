@@ -23,8 +23,8 @@ BOUtil.send = (res, data) => {
   }
   res.send({
     code: 200,
-    store: data
-  })
-}
+    result: data
+  });
+};
 
 module.exports = BOUtil;

@@ -1,15 +1,58 @@
-const pool = require('../../connector/mysql.js');
+const Logger = require('../../../util/LoggerUtil');
+const BOUtil = require('../../../util/BOUtil');
+const mysql = require('../../connector/mysql');
 
-// 메뉴 조회
-exports.list = () => {
-  let result = null;
+const menuMapper = {};
+const TABLE = 'Menu';
 
-  return result = '으아아아아아아';
+menuMapper.selMenuList = (params, callback) => {
+  let obj = Object.values(params);
+  let and = '';
+
+  if (obj.length === 1) {
+    if (params.name) {
+      and += `and menuname like '%${params.name}%'`;
+    } else if (params.status) {
+      and += `and status='${params.status}'`;
+    } else if (params.type) {
+      and += `and mealtype='${params.type}'`;
+    }
+  } else if (obj.length === 2) {
+    if (params.name || params.status) {
+      and += `
+        and menuname like '%${params.name}%'
+        and status='${params.status}'
+      `;
+    } else if (params.name || params.type) {
+      and += `
+        and menuname like '%${params.name}%'
+        and mealtype='${params.type}'
+      `;
+    } else if (params.status || params.type) {
+      and += `
+        and status='${params.status}'
+        and mealtype='${params.type}'
+      `;
+    }
+  } else if (params.name || params.status || params.type) {
+    and += `
+      and menuname like '%${params.name}%'
+      and status='${params.status}'
+      and mealtype='${params.type}'
+    `;
+  }
+
+  const query = `
+    select * from ${TABLE}
+    where 1=1 ${and}
+    order by price asc
+    limit ${params.page}, ${params.pageRow}
+  `;
+
+  mysql.execute(query, res => {
+    Logger.d(`menuMapper.selMenuList done - result: ${res.success}`);
+    BOUtil.wfExce(null, callback, res);
+  });
 };
 
-// 메뉴 생성
-exports.create = () => {
-  const result = '포스트';
-
-  return result;
-};
+module.exports = menuMapper;
