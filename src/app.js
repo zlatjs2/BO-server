@@ -7,7 +7,7 @@ const helmet = require('helmet');
 const session = require('express-session');
 require('dotenv').config();
 
-const storeRoute = require('./routes/StoreRoute');
+const storeRoute = require('./routes/storeRoute');
 
 const port = 9001
 const expiryDate = new Date( Date.now() + 60 * 60 * 1000 ); // 1 hour
