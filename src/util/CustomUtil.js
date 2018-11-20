@@ -3,8 +3,8 @@ const Logger = require('./LoggerUtil');
 
 const CustomUtil = {};
 
-CustomUtil.inspect = (obj) => {
+CustomUtil.inspect = obj => {
   return util.inspect(obj);
-}
+};
 
 module.exports = CustomUtil;
