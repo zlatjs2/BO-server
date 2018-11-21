@@ -60,16 +60,20 @@ menuMapper.addMenu = (params, callback) => {
     insert into ${TABLE}
     (
       mid, sid, storename,
-      menuname, categorySeq, seq,
-      price, sellprice, supplyprice,
-      status, mealtype, regdate
+      menuname, seq, price, 
+      sellprice, supplyprice,
+      status, mealtype, regdate,
+      categorySeq, categoryid, category,
+      intro, productid, prodtype
     )
     values
     (
       '${mid}', '${sid}', '${storename}',
-      '${menuname}', '${categorySeq}', '${seq}',
-      '${price}', '${sellprice}', '${supplyprice}',
-      '${status}', '${mealtype}', '${regdate}'
+      '${menuname}', '${seq}', '${price}',
+      '${sellprice}', '${supplyprice}',
+      '${status}', '${mealtype}', '${regdate}',
+      '${categorySeq}', ${categoryid}', '${category}',
+      '${intro}', '${productid}', '${prodtype}'
     )
   `;
 

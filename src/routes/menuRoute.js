@@ -43,23 +43,21 @@ router
           callback => {
             const p = req.query;
             const params = {
-              sid: '000A870A-1FD1-6FB1-5489-917321E24460',
-              // sid: p.sid,
-              storename: 'Z_써브웨이(논현역점)',
-              menuname: '테스트메뉴빠아아아아아앙',
-              categorySeq: 1,
-              seq: 50,
-              price: 99999,
-              sellprice: 9999,
-              supplyprice: 999,
-              status: 1,
-              mealtype: 3,
-
+              sid: p.sid,
+              storename: p.storename,
+              menuname: p.menuname,
+              seq: p.seq,
+              price: p.price,
+              sellprice: p.sellPrice,
+              supplyprice: p.supplyPrice,
+              status: p.status,
+              mealtype: p.mealType,
+              categorySeq: p.categorySeq ? p.categorySeq : 0,
               categoryid: p.categoryId ? p.categoryId : 0,
-              category: p.category, // null
-              intro: p.intro, // null
-              productid: p.productId, // null
-              prodtype: p.prodType // null
+              category: p.category ? p.category : null,
+              intro: p.intro ? p.intro : null,
+              productid: p.productId ? p.productId : null,
+              prodtype: p.prodType ? p.prodType : null
             };
 
             menuMapper.addMenu(params, callback);
