@@ -27,7 +27,12 @@ router
             menuMapper.selMenuList(params, callback);
           },
           (result, objParams) => {
-            send(res, result.data);
+            // send(res, result.data);
+            const r = {
+              code: 200,
+              data: result.data
+            };
+            res.json(r);
           }
         ],
         err => Logger.e(err)
@@ -52,6 +57,7 @@ router
               supplyprice: p.supplyPrice,
               status: p.status,
               mealtype: p.mealType,
+
               categorySeq: p.categorySeq ? p.categorySeq : 0,
               categoryid: p.categoryId ? p.categoryId : 0,
               category: p.category ? p.category : null,
